@@ -2,7 +2,7 @@ import React, {useState} from "react"
 
 
 
-const ReviewForm = ({reviews, setReviews, book_id,user_id,setUserid}) => {
+const ReviewForm = ({reviews, setReviews, book_id,user_id,setUserId}) => {
 
 //    const [formData, setFormData] = useState({
 //     id: '',
@@ -33,8 +33,6 @@ const reviewObj = {
 }
 
 
-
-
 const handleSubmit = (e) => {
   e.preventDefault()
   const configObj = {
@@ -47,7 +45,7 @@ const handleSubmit = (e) => {
   .then((review) => {
     console.log(review)
     setReviews([...reviews, review])
-    setUserid(user_id+1)
+    setUserId(user_id+1)
   })
 }
 

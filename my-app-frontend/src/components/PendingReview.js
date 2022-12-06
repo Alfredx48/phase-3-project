@@ -28,17 +28,13 @@ const PendingReview = () => {
 //       setReviews(reviewData)
 //   }, []) }) 
 
-
-
-
   useEffect(() =>{ 
     fetch("http://localhost:9292/books")
      .then(response => response.json())
      .then(bookData => { 
-      // console.log(bookData)
+      console.log(bookData)
       setBooks(bookData)
     });
-  
   }, 
     [])
 
@@ -51,24 +47,24 @@ const PendingReview = () => {
 //  }, 
 //    [])
 
-
-
-
+    
     const mappedBooks = () => {
       
       
       return books.map(book => {
+      
         return (
           <>
           <h1>{book.title}</h1>
           <h2>{book.author}</h2>
           <h2>{book.genre}</h2>
           <h2>{book.publisher}</h2>
+          <h3>{book.reviews.user_id}</h3>
           <button onClick={clickReviewTrue}>
          
             click to review</button>
             {
-          clickReview ?  <ReviewForm reviews = {reviews} setReviews = {setReviews}  book_id={book.id} user_id={users} setUserid={setUsers}/>
+          clickReview ?  <ReviewForm reviews = {reviews} setReviews = {setReviews}  book_id={book.id} user_id={users} setUserId={setUsers}/>
               : null}
           <br />
           </>

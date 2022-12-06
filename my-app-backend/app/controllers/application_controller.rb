@@ -8,7 +8,7 @@ class ApplicationController < Sinatra::Base
 
   get "/books" do 
     books = Book.all
-    books.to_json
+    books.to_json(include: :reviews)
   end
 
   get '/books/:id' do
@@ -18,11 +18,11 @@ class ApplicationController < Sinatra::Base
 
   end
 
-  get '/best' do 
-  books= Book.first.reviews.order(params[:book_rating])
-  binding.pry
-  books.to_json
-end
+#   get '/best' do 
+#   books= Book.first.reviews.order(params[:book_rating])
+#   binding.pry
+#   books.to_json
+# end
 
   post '/books' do
     books = Book.create(params)
