@@ -1,8 +1,35 @@
 import React, {useEffect, useState} from 'react'
 
+import ReviewForm from './ReviewForm'
+
+import Reviews from './Reviews'
+
+
 
 const PendingReview = () => {
+
+
+  const [reviews, setReviews] = useState([])
+
+
   const [books, setBooks] = useState([])
+
+  const [clickReview,setClickReview]= useState(false)
+
+ const clickReviewTrue = ()=>setClickReview(!clickReview)
+
+ const [users,setUsers] = useState(1)
+
+// useEffect(() =>{
+//     fetch('http://localhost:9292/reviews')
+//      .then(response => response.json())
+//      .then(reviewData => {
+//       // console.log(reviewData)
+//       setReviews(reviewData)
+//   }, []) }) 
+
+
+
 
   useEffect(() =>{ 
     fetch("http://localhost:9292/books")
@@ -15,7 +42,21 @@ const PendingReview = () => {
   }, 
     [])
 
+//  useEffect(() =>{ fetch("http://localhost:9292/users")
+//     .then(response => response.json())
+//     .then(userData => { 
+//      // console.log(bookData)
+//      setUsers(userData)
+//    });
+//  }, 
+//    [])
+
+
+
+
     const mappedBooks = () => {
+      
+      
       return books.map(book => {
         return (
           <>
@@ -23,7 +64,12 @@ const PendingReview = () => {
           <h2>{book.author}</h2>
           <h2>{book.genre}</h2>
           <h2>{book.publisher}</h2>
-          <button>click to review</button>
+          <button onClick={clickReviewTrue}>
+         
+            click to review</button>
+            {
+          clickReview ?  <ReviewForm reviews = {reviews} setReviews = {setReviews}  book_id={book.id} user_id={users} setUserid={setUsers}/>
+              : null}
           <br />
           </>
         )
@@ -31,8 +77,20 @@ const PendingReview = () => {
     }
 
 
+   
+
+
   return (
-    <div>{mappedBooks()}</div>
+    <div>{mappedBooks()}
+    {/* {<button > 
+          /* { clickReview ?   <ReviewForm reviews = {reviews} setReviews = {setReviews} bookid={book.id} />
+    : null} */} 
+    <Reviews reviews={reviews} />
+    </div>  
+
+    
+   
+
   )
 }
 

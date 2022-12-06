@@ -1,26 +1,38 @@
 import React, {useState} from "react"
 
-const ReviewForm = ({reviews, setReviews}) => {
-
-   const [formData, setFormData] = useState({
-    id: '',
-    comment: '',
-    book_rating: ''
-})
 
 
-// const handleChange = (e) => {
-//   setFormData((prevState) => {
-//     return {
-//       ...prevState,
-//       [e.target.name]: e.target.value,
-//     };
-//   });
-// };
+const ReviewForm = ({reviews, setReviews, book_id,user_id,setUserid}) => {
 
-const handleChange = (e) => {
-  
+//    const [formData, setFormData] = useState({
+//     id: '',
+//     comment: '',
+//     book_rating: ''
+// })
+const [rating,setRating] = useState(0)
+const [comment,setComment] =useState("");
+
+
+const handleChangeComment = (e) => {
+
+  setComment((e.target.value))
+ 
+};
+
+const handleChangeRating =(e) => {
+
+  setRating((e.target.value))
 }
+
+const reviewObj = {
+  id: '',
+  comment: comment,
+  book_rating: rating,
+  book_id: book_id,
+  user_id: user_id
+}
+
+
 
 
 const handleSubmit = (e) => {
@@ -28,35 +40,35 @@ const handleSubmit = (e) => {
   const configObj = {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(formData)
+    body: JSON.stringify(reviewObj)
   };
   fetch("http://localhost:9292/reviews", configObj)
   .then(response => response.json())
   .then((review) => {
     console.log(review)
     setReviews([...reviews, review])
+    setUserid(user_id+1)
   })
 }
 
 
-
 	return (
+
 		<div>
 			<form onSubmit={handleSubmit} >
 				<input  
-        onChange={handleChange} 
         type="text" 
         name="name" 
         placeholder="Name"
         >
         </input>
 				<textarea 
-        onChange={handleChange} 
+        onChange={handleChangeComment} 
         placeholder="Review"
-         value ={formData.comment}>
+        value ={comment}>
 
         </textarea>
-				<select onChange={handleChange} >
+				<select onChange={handleChangeRating} value ={rating}>
 					<option value="0">0</option>
 					<option value="1">1</option>
 					<option value="2">2</option>
