@@ -1,46 +1,43 @@
-// import '/App.css';
-// import { useEffect, useState } from "react";
-import { useState } from "react";
+import "../App.css";
+
+import { useState, useEffect } from "react";
 import PendingReview from "./PendingReview";
-import ReviewForm from "./ReviewForm";
-import Login from './Login';
-import {Switch,Route} from "react-router-dom";
-// import Reviews from "./Reviews";
+import HomePage from "./HomePage";
+import NavBar from "./NavBar";
+import Books from "./Books";
+import { Switch, Route } from "react-router-dom";
 
 function App() {
-  // const [reviews, setReviews] = useState([])
+	const [currentUser, setCurrentUser] = useState(null);
+	const [books, setBooks] = useState([]);
 
-  // useEffect(() =>{
-  //   fetch('http://localhost:9292/reviews')
-  //    .then(response => response.json())
-  //    .then(reviewData => {
-  //     // console.log(reviewData)
-  //     setReviews(reviewData)
-  // }, []) }) 
+	useEffect(() => {
+		fetch("http://localhost:9292/books")
+			.then((response) => response.json())
+			.then((bookData) => {
+				console.log(bookData);
+				setBooks(bookData);
+			});
+	}, []);
 
-
-const [currentUser,setCurrentUser] =  useState(null)
-
-
-const changeUser = (user) => 
-{
-  setCurrentUser(user)
-}
-
+	const changeUser = (user) => {
+		setCurrentUser(user);
+	};
 
 	return (
 		<div className="App">
-
-			{/* <ReviewForm reviews = {reviews} setReviews = {setReviews} /> */}
-      {/* <Reviews  /> */}
-     
-      <Switch>
-        
-			<Route exact path = "/books" > <PendingReview  /></Route>
-     <Route  path  = "/login" ><Login changeUser={changeUser}/></Route>
- 
-      </Switch>
-      
+			<Switch>
+				<Route exact path="/">
+				<NavBar />
+					<HomePage changeUser={changeUser} />
+				</Route>
+				<Route path="/books">
+				<NavBar />
+				<Books books={books}/>
+				</Route>
+				<Route path = "best_books"></Route>
+				<PendingReview books = {books}/>
+			</Switch>
 		</div>
 	);
 }

@@ -3,7 +3,7 @@
 import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 
-const Login =({changeUser})=>{
+const HomePage =({changeUser})=>{
 
 const [userLogin,setUserLogin] = useState("")
 
@@ -51,4 +51,4 @@ return (
 
 }
 
-export default Login
+export default HomePage

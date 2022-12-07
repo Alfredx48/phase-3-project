@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React,  {useState } from "react";
 import ReviewForm from "./ReviewForm";
 import Reviews from "./Reviews";
 import { motion } from "framer-motion";
@@ -20,14 +20,12 @@ const variants = {
 	},
 };
 
-const PendingReview = ({books}) => {
+const ReviewedBooks = ({books}) => {
 	const [reviews, setReviews] = useState([]);
-
 	const [clickReview, setClickReview] = useState(false);
+	const [users, setUsers] = useState(1);
 
 	const clickReviewTrue = () => setClickReview(!clickReview);
-
-	const [users, setUsers] = useState(1);
 
 
 
@@ -62,7 +60,6 @@ const PendingReview = ({books}) => {
 
 						</div>
 					</motion.div>
-							<br />
 					<div>
 						{clickReview ? (
 							<ReviewForm
@@ -91,4 +88,4 @@ const PendingReview = ({books}) => {
 	);
 };
 
-export default PendingReview;
+export default ReviewedBooks;
