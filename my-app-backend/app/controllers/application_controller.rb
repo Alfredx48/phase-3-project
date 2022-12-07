@@ -44,6 +44,16 @@ end
     reviews.to_json
   end
 
+  get "/logins/:username" do 
+    login = Login.find_by_username(params[:username])
+    if login
+    login.to_json
+    else
+      status 401
+      {error:"User dosent exist"}.to_json
+    end
+  end
+
   get "/*" do 
     "404 NOT FOUND"
   end

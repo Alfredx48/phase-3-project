@@ -44,5 +44,8 @@ b = Book.create(  image_url: Faker::LoremFlickr.image( search_terms:["book"],mat
   Review.create(book_rating: rand(1..10), comment: 'good', book_id: b.id, user_id: u.id)
 
 
+  Login.create(username:"Nik")
+  Login.create(username:"Alfred")
+  Login.create(username:"Chris")
 
 puts "✅ Done seeding!"
