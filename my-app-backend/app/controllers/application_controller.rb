@@ -6,6 +6,7 @@ class ApplicationController < Sinatra::Base
     { message: "Good luck with your project!" }.to_json
   end
 
+
   get "/books" do 
     books = Book.all
     books.to_json(include: :reviews)
@@ -18,11 +19,10 @@ class ApplicationController < Sinatra::Base
 
   end
 
-#   get '/best' do 
-#   books= Book.first.reviews.order(params[:book_rating])
-#   binding.pry
-#   books.to_json
-# end
+  get '/best' do 
+  books= Book.highest_book
+  books.to_json
+end
 
   post '/books' do
     books = Book.create(params)
@@ -43,8 +43,6 @@ class ApplicationController < Sinatra::Base
     reviews = Review.create(params)
     reviews.to_json
   end
-
-
 
   get "/*" do 
     "404 NOT FOUND"
