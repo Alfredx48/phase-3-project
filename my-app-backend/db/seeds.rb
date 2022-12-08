@@ -32,20 +32,20 @@ b9 = Book.create(  image_url: Faker::LoremFlickr.image( search_terms:["book"],ma
 b = Book.create(  image_url: Faker::LoremFlickr.image( search_terms:["book"],match_all: false), title: Faker::Book.title, author: Faker::Book.author, publisher: Faker::Book.publisher, genre: Faker::Book.genre)
 
 
-  Review.create(book_rating: rand(1..10), comment: 'wow', book_id: b1.id, user_id: u1.id)
-  Review.create(book_rating: rand(1..10), comment: 'great', book_id: b2.id, user_id: u2.id)
-  Review.create(book_rating: rand(1..10), comment: 'amazing', book_id: b3.id, user_id: u3.id)
-  Review.create(book_rating: rand(1..10), comment: 'boring', book_id: b4.id, user_id: u4.id)
-  Review.create(book_rating: rand(1..10), comment: 'bad', book_id: b5.id, user_id: u5.id)
-  Review.create(book_rating: rand(1..10), comment: 'amazing', book_id: b6.id, user_id: u6.id)
-  Review.create(book_rating: rand(1..10), comment: 'too long', book_id: b7.id, user_id: u7.id)
-  Review.create(book_rating: rand(1..10), comment: 'too short', book_id: b8.id, user_id: u8.id)
-  Review.create(book_rating: rand(1..10), comment: 'nice', book_id: b9.id, user_id: u9.id)
-  Review.create(book_rating: rand(1..10), comment: 'good', book_id: b.id, user_id: u.id)
+  Review.create(book_rating: 6, comment: 'wow', book_id: b1.id, user_id: u1.id)
+  Review.create(book_rating: 3, comment: 'great', book_id: b2.id, user_id: u2.id)
+  Review.create(book_rating: 1, comment: 'amazing', book_id: b3.id, user_id: u3.id)
+  Review.create(book_rating: 7, comment: 'boring', book_id: b4.id, user_id: u4.id)
+  Review.create(book_rating: 4, comment: 'bad', book_id: b5.id, user_id: u5.id)
+  Review.create(book_rating: 8, comment: 'amazing', book_id: b6.id, user_id: u6.id)
+  Review.create(book_rating: 10, comment: 'too long', book_id: b7.id, user_id: u7.id)
+  Review.create(book_rating: 2, comment: 'too short', book_id: b8.id, user_id: u8.id)
+  Review.create(book_rating: 5, comment: 'nice', book_id: b9.id, user_id: u9.id)
+  Review.create(book_rating: 9, comment: 'good', book_id: b.id, user_id: u.id)
 
 
-  Login.create(username:"Nik")
-  Login.create(username:"Alfred")
-  Login.create(username:"Chris")
+  Login.create(username:"Nik", password: "123")
+  Login.create(username:"Alfred", password: "456")
+  Login.create(username:"Chris", password: "789")
 
 puts "✅ Done seeding!"

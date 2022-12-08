@@ -1,4 +1,7 @@
-/* @import url('https://fonts.googleapis.com/css?family=roboto');
+import { createGlobalStyle } from "styled-components"
+
+const BooksStyle = createGlobalStyle`
+@import url('https://fonts.googleapis.com/css?family=roboto');
 
 body {
   background: papayawhip;
@@ -50,4 +53,7 @@ button:hover {
   text-decoration: none;
   color: black;
   border-radius: 10px;
-} */
+}
+`
+
+export default BooksStyle

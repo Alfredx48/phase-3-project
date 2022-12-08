@@ -1,4 +1,4 @@
-import React,  {useState } from "react";
+import React, { useState } from "react";
 import ReviewForm from "./ReviewForm";
 import Reviews from "./Reviews";
 import { motion } from "framer-motion";
@@ -20,14 +20,12 @@ const variants = {
 	},
 };
 
-const ReviewedBooks = ({books}) => {
+const ReviewedBooks = ({ books }) => {
 	const [reviews, setReviews] = useState([]);
 	const [clickReview, setClickReview] = useState(false);
 	const [users, setUsers] = useState(1);
 
 	const clickReviewTrue = () => setClickReview(!clickReview);
-
-
 
 	const mappedBooks = () => {
 		return books.map((book) => {
@@ -42,40 +40,38 @@ const ReviewedBooks = ({books}) => {
 				});
 			};
 			return (
-        <>
-				<div className="reviews">
-					<motion.div
-						variants={variants}
-						whileHover={{ scale: 1.1 }}
-						whileTap={{ scale: 0.95 }}
-						
-					>
+				<>
+					<div className="reviews">
+						<motion.div
+							variants={variants}
+							whileHover={{ scale: 1.1 }}
+							whileTap={{ scale: 0.95 }}
+						>
+							<div>
+								<h1>Title: {book.title}</h1>
+								<h2>Author: {book.author}</h2>
+								<h2>Genre: {book.genre}</h2>
+								<h2>Publisher: {book.publisher}</h2>
+								<img src={book.image_url} alt="book" />
+								<h3>{mappedComments()}</h3>
+							</div>
+						</motion.div>
 						<div>
-							<h1>Title: {book.title}</h1>
-							<h2>Author: {book.author}</h2>
-							<h2>Genre: {book.genre}</h2>
-							<h2>Publisher: {book.publisher}</h2>
-              <img src={book.image_url} alt = "book"/> 
-							<h3>{mappedComments()}</h3>
-
+							{clickReview ? (
+								<ReviewForm
+									reviews={reviews}
+									setReviews={setReviews}
+									book_id={book.id}
+									user_id={users}
+									setUserId={setUsers}
+								/>
+							) : null}
+							<br />
+							<button onClick={clickReviewTrue}>click to review</button>
 						</div>
-					</motion.div>
-					<div>
-						{clickReview ? (
-							<ReviewForm
-								reviews={reviews}
-								setReviews={setReviews}
-								book_id={book.id}
-								user_id={users}
-								setUserId={setUsers}
-							/>
-						) : null}
-						<br />
-						<button onClick={clickReviewTrue}>click to review</button>
 					</div>
-				</div>
-        <br/>
-        </>
+					<br />
+				</>
 			);
 		});
 	};

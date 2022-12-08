@@ -1,54 +1,69 @@
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
+const HomePage = ({ changeUser, togglePassword }) => {
+	const [userLogin, setUserLogin] = useState("");
+	const [passLogin, setPassLogin] = useState("");
 
-import React, {useState} from 'react';
-import {useHistory} from 'react-router-dom';
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		findCurrentUser(userLogin, passLogin);
+	};
 
-const HomePage =({changeUser})=>{
+	const handleChange = (e) => {
+		setUserLogin(e.target.value);
+	};
 
-const [userLogin,setUserLogin] = useState("")
+    const handlePassChange = (e) => {
+		setPassLogin(e.target.value);
+	};
 
-const handleSubmit = (e) =>{ 
+	const history = useHistory();
 
-    e.preventDefault()
-    findCurrentUser(userLogin)
-   
-}
+	async function findCurrentUser(username, password) {
+		const response = await fetch(`http://localhost:9292/logins/${username}/${password}`);
 
-const handleChange= e => {
-    setUserLogin(e.target.value)
-}
+		if (response.status && response.status === 401) {
+			return alert("Username does not exist");
+		} else {
+			const user = await response.json()
+			changeUser(user);
+            togglePassword(password);
 
-const history = useHistory();
+			history.push("/books");
+		}
+	}
 
-async function findCurrentUser(username){
-    const response = await fetch(`http://localhost:9292/logins/${username}`)
-  
-if (response.status === 401 ) {
-    return  alert("Username does not exist")
-}
-    else {
-    const user = await response.json()
-    changeUser(user)
-    
-    history.push('/books')
-    }
-    
+	return (
+		<div>
+			<form onSubmit={handleSubmit}>
+				<label htmlFor="login" value="Username">
+					{" "}
+					Username:{" "}
+				</label>
+				<br />
+				<input
+					type="text"
+					name="login"
+					value={userLogin}
+					onChange={handleChange}
+					autoFocus={true}
+				/>
+			
+                <br />
+                <br />
+                <input
+                type="text"
+                name="password"
+                value={passLogin}
+                onChange={handlePassChange}
+                autoFocus={true}
+                >
+                </input>
+                <input type="submit" value="Login" />
+			</form>
+		</div>
+	);
+};
 
-}
-
-
-return (
-
-     <div>
-     <form onSubmit={handleSubmit}>
-     <label htmlFor="login" value="Username"> Username:  </label><br/>
-     <input type="text" name="login" value={userLogin} onChange={handleChange} autoFocus={true}/>
-     <input type="submit" value="Login"/>
-     </form>
-     </div>
-)
-
-
-}
-
-export default HomePage
+export default HomePage;
