@@ -9,9 +9,9 @@ Review.destroy_all
 
 puts "🌱 Seeding spices..."
 
-u1 = User.create(name: Faker::Name.name)
-u2 = User.create(name: Faker::Name.name)
-u3 = User.create(name: Faker::Name.name)
+u1 = User.create(name: Faker::Name.name,username:"Nik", password: "123")
+u2 = User.create(name: Faker::Name.name,username:"Alfred", password: "456")
+u3 = User.create(name: Faker::Name.name,username:"Chris", password: "789")
 u4= User.create(name: Faker::Name.name)
 u5 = User.create(name: Faker::Name.name)
 u6 = User.create(name: Faker::Name.name)
@@ -29,7 +29,7 @@ b6 = Book.create(  image_url: Faker::LoremFlickr.image( search_terms:["book"],ma
 b7 = Book.create(  image_url: Faker::LoremFlickr.image( search_terms:["book"],match_all: false), title: Faker::Book.title, author: Faker::Book.author, publisher: Faker::Book.publisher, genre: Faker::Book.genre)
 b8 = Book.create(  image_url: Faker::LoremFlickr.image( search_terms:["book"],match_all: false), title: Faker::Book.title, author: Faker::Book.author, publisher: Faker::Book.publisher, genre: Faker::Book.genre)
 b9 = Book.create(  image_url: Faker::LoremFlickr.image( search_terms:["book"],match_all: false), title: Faker::Book.title, author: Faker::Book.author, publisher: Faker::Book.publisher, genre: Faker::Book.genre)
-b = Book.create(  image_url: Faker::LoremFlickr.image( search_terms:["book"],match_all: false), title: Faker::Book.title, author: Faker::Book.author, publisher: Faker::Book.publisher, genre: Faker::Book.genre)
+b = Book.create(   image_url: Faker::LoremFlickr.image( search_terms:["book"],match_all: false), title: Faker::Book.title, author: Faker::Book.author, publisher: Faker::Book.publisher, genre: Faker::Book.genre)
 
 
   Review.create(book_rating: 6, comment: 'wow', book_id: b1.id, user_id: u1.id)
@@ -44,8 +44,6 @@ b = Book.create(  image_url: Faker::LoremFlickr.image( search_terms:["book"],mat
   Review.create(book_rating: 9, comment: 'good', book_id: b.id, user_id: u.id)
 
 
-  Login.create(username:"Nik", password: "123")
-  Login.create(username:"Alfred", password: "456")
-  Login.create(username:"Chris", password: "789")
+
 
 puts "✅ Done seeding!"

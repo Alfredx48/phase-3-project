@@ -8,8 +8,8 @@ class ApplicationController < Sinatra::Base
     books.to_json(include: { reviews: { include: :user } })
   end
 
-  get "/logins/:username/:password" do
-    login = Login.find_by(username: params[:username], password: params[:password])
+  get "/users/:username/:password" do
+    login = User.find_by(username: params[:username], password: params[:password])
     if login 
       login.to_json
     else

@@ -21,7 +21,7 @@ const HomePage = ({ changeUser, togglePassword }) => {
 	const history = useHistory();
 
 	async function findCurrentUser(username, password) {
-		const response = await fetch(`http://localhost:9292/logins/${username}/${password}`);
+		const response = await fetch(`http://localhost:9292/users/${username}/${password}`);
 
 		if (response.status === 401) {
 			return alert("Wrong Username or Password");
