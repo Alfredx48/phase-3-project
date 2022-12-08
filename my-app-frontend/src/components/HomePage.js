@@ -23,8 +23,8 @@ const HomePage = ({ changeUser, togglePassword }) => {
 	async function findCurrentUser(username, password) {
 		const response = await fetch(`http://localhost:9292/logins/${username}/${password}`);
 
-		if (response.status && response.status === 401) {
-			return alert("Username does not exist");
+		if (response.status === 401) {
+			return alert("Wrong Username or Password");
 		} else {
 			const user = await response.json()
 			changeUser(user);
