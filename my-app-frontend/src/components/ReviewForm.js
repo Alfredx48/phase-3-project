@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 
 const ReviewForm = ({ reviews, setReviews, book_id, user_id, setUserId }) => {
-	//    const [formData, setFormData] = useState({
-	//     id: '',
-	//     comment: '',
-	//     book_rating: ''
-	// })
 	const [rating, setRating] = useState(0);
 	const [comment, setComment] = useState("");
 

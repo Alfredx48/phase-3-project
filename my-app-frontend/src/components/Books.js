@@ -31,16 +31,7 @@ const Books = ({ books, currentUser }) => {
 
 	const mappedBooks = () => {
 		return books.map((book) => {
-			const mappedComments = () => {
-				return book.reviews.map((br) => {
-					return (
-						<>
-							<h1> Rating : {br.book_rating}</h1>
-							<h2>Comment : {br.comment}</h2>
-						</>
-					);
-				});
-			};
+			console.log(book)
 			return (
 				<>
 					<div className="reviews">
@@ -55,7 +46,6 @@ const Books = ({ books, currentUser }) => {
 								<h2>Genre: {book.genre}</h2>
 								<h2>Publisher: {book.publisher}</h2>
 								<img src={book.image_url} alt="book" />
-								{/* <h3>{mappedComments()}</h3> */}
 							</div>
 						</motion.div>
 						<br />
@@ -83,7 +73,7 @@ const Books = ({ books, currentUser }) => {
 		<div>
       <h1> Welcome {currentUser} </h1>
 			{mappedBooks()}
-			<Reviews reviews={reviews} />
+			{/* <Reviews reviews={reviews} /> */}
 		</div>
 	);
 };

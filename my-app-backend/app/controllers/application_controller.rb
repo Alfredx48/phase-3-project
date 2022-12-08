@@ -18,15 +18,32 @@ class ApplicationController < Sinatra::Base
     end
   end
   
-    get "/best" do
+  get "/best" do
       books = Book.best_book
       books.to_json
-    end
+  end
 
-    get "/top_books" do 
+  get "/top_books" do 
         books = Book.top_books
-        books.to_json
-    end
+        books.to_json(include: :reviews)
+   end
+   
+   delete "/reviews/:id" do 
+     review = Review.find(params[:id])
+     review.destroy
+     review.to_json
+   end
+
+   patch '/reviews/:id' do
+    review = Review.find(params[:id])
+    review.update(book_rating: params[:book_rating], comment: params[:comment])
+    review.to_json
+  end
+
+   post "/reviews" do
+     reviews = Review.create(params)
+     reviews.to_json
+   end
 
   get "/books" do
     books = Book.all
@@ -53,10 +70,6 @@ class ApplicationController < Sinatra::Base
     reviews.to_json
   end
 
-  post "/reviews" do
-    reviews = Review.create(params)
-    reviews.to_json
-  end
 
   get "/*" do
     "404 NOT FOUND"

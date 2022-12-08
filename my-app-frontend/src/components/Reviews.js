@@ -1,18 +1,21 @@
-import { useEffect, useState } from "react";
 
-const Reviews = ({ reviews }) => {
-	const mappedReviews = () => {
-		return reviews.map((review) => {
-			return (
-				<>
-					<h1>{review.comment}</h1>
-					<h2>{review.book_rating}</h2>
-				</>
-			);
-		});
-	};
+import {useState} from 'react'
+import EditForm from './EditForm';
 
-	return <div>{mappedReviews()}</div>;
-};
+const Reviews = ({br, deleteReview, editReview}) => {
+	const [toggleEdit, setToggleEdit] = useState(false);
 
-export default Reviews;
+	return (
+		<>
+			 <h2> {br.book_rating}</h2> 
+			 <h2> {br.comment}</h2> 
+			<button onClick={() => deleteReview(br.id, br.book_id)}>delete</button>
+			<button onClick={() => setToggleEdit(!toggleEdit)} >Edit</button>
+			<br/>
+			<br/>
+			{toggleEdit ? <EditForm id = {br.id} book_id = {br.book_id} editReview={editReview} /> : null}
+		</>
+	);
+}
+
+export default Reviews
