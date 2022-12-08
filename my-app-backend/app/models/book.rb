@@ -4,12 +4,11 @@ has_many :users, through: :reviews
 
 
   def average_rating
-  
-  self.reviews.average(:book_rating).to_i
+    self.reviews.average(:book_rating).to_i
   end
 
   def self.best_book
- best_book =  Book.all.max_by do |book| 
+    best_book =  Book.all.max_by do |book| 
     book.average_rating
   end
 

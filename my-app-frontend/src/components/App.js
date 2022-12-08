@@ -11,7 +11,7 @@ import { Switch, Route } from "react-router-dom";
 
 function App() {
 	const [currentUser, setCurrentUser] = useState(null);
-	const [pasword, setPassword] = useState(null);
+	const [password, setPassword] = useState(null);
 	const [books, setBooks] = useState([]);
 
 	useEffect(() => {
@@ -44,7 +44,7 @@ function App() {
 				<Route path="/books">
 					<NavBar />
 					<BooksStyle />
-					<Books books={books} />
+					<Books books={books} currentUser={currentUser} />
 				</Route>
 				<Route path="/best_books">
 					<NavBar />

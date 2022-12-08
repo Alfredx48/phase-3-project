@@ -20,7 +20,7 @@ const variants = {
 	},
 };
 
-const Books = ({ books }) => {
+const Books = ({ books, currentUser }) => {
 	const [reviews, setReviews] = useState([]);
 
 	const [clickReview, setClickReview] = useState(false);
@@ -81,6 +81,7 @@ const Books = ({ books }) => {
 
 	return (
 		<div>
+      <h1> Welcome {currentUser} </h1>
 			{mappedBooks()}
 			<Reviews reviews={reviews} />
 		</div>

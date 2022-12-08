@@ -48,8 +48,7 @@ button:hover {
 .link {
   display: inline-block;
   padding: 12px;
-  margin: 0 6px 6px;
-  background-color: ;
+  margin: 0 6px 6px; 
   text-decoration: none;
   color: black;
   border-radius: 10px;

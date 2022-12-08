@@ -4,7 +4,7 @@ const HomePageStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=roboto');
 
 body {
-  background: papayawhip;
+  background: #778C97;
   background-repeat: no-repeat;
 
   background-position: center top;
@@ -18,7 +18,7 @@ body {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
 
-/* .reviews {
+.reviews {
   background-color: rgba(100, 149, 237, .5);
   display: flex;
   flex-direction: column;
@@ -43,13 +43,13 @@ button {
 
 button:hover {
   background-color: papayawhip;
-} */
+}
 
 .link {
   display: inline-block;
   padding: 12px;
   margin: 0 6px 6px;
-  background-color: ;
+
   text-decoration: none;
   color: black;
   border-radius: 10px;

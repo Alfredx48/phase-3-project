@@ -10,7 +10,7 @@ const NavBar = () => {
 			</NavLink>
 			<NavLink className="link" to="/books">
 				{" "}
-				books{" "}
+				Books{" "}
 			</NavLink>
 			<NavLink className="link" to="/best_books">
 				{" "}

@@ -4,7 +4,7 @@ const BestBooksStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=roboto');
 
 body {
-  background: papayawhip;
+  background: tomato;
   background-repeat: no-repeat;
 
   background-position: center top;
@@ -19,7 +19,7 @@ body {
 }
 
 .reviews {
-  background-color: rgba(100, 149, 237, .5);
+  background-color: rgb(250, 250, 210);
   display: flex;
   flex-direction: column;
   width: 400px;

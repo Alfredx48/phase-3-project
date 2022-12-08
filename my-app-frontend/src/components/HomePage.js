@@ -27,7 +27,7 @@ const HomePage = ({ changeUser, togglePassword }) => {
 			return alert("Wrong Username or Password");
 		} else {
 			const user = await response.json()
-			changeUser(user);
+			changeUser(username);
             togglePassword(password);
 
 			history.push("/books");
