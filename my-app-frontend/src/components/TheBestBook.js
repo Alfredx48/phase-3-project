@@ -15,16 +15,18 @@ const TheBestBook = () => {
 			});
 	}, []);
 
-	// const mappedReviews = () => {
-	//   theBestBook.reviews.map(br => {
-	//     return (
-	//       <>
-	//       <p>{br.comment}</p>
-	//       <p>{br.book_rating}</p>
-	//       </>
-	//     )
-	//   })
-	// }
+useEffect(()=>{
+	const mappedReviews = () => {
+	theBestBook.reviews.map(br => {
+		return (
+			<>
+			<p>{br.comment}</p>
+			<p>{br.book_rating}</p>
+			</>
+		)
+	})
+}}, [])
+	
 
 	const colorsConfetti = [
 		"#f44336",
@@ -67,12 +69,11 @@ const TheBestBook = () => {
 		<>
 			<button onClick={() => setParty(!party)}>More Confetti</button>
 		<div className="reviews">
-			<h2 className="font-effect-3d-float">{theBestBook.author}</h2>
-			<h1 className="font-effect-3d-float">Title: {theBestBook.title}</h1>
-			<h2 className="font-effect-3d-float">Author: {theBestBook.author}</h2>
-			<h2 className="font-effect-3d-float">Genre: {theBestBook.genre}</h2>
-			<h2 className="font-effect-3d-float">Publisher: {theBestBook.publisher}</h2>
+			<h1 className="font-effect-3d">{theBestBook.title}</h1>
+			<h2 className="font-effect-3d"> by {theBestBook.author}</h2>
+			<p>{theBestBook.description}</p>
 			<img src={theBestBook.image_url} alt="Book" />
+			<h2 className="font-effect-3d">Genre:{theBestBook.genre}</h2>
 			{/* {theBestBook.reviews.map((br) => {
 				return (
 					<>

@@ -1,12 +1,12 @@
 import { createGlobalStyle } from "styled-components"
 
 const BooksStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css?family=roboto');
 
 body {
+  font-family: Zen Dots;
+  /* font-family: Arial, Helvetica, sans-serif; */
   background: papayawhip;
   background-repeat: no-repeat;
-
   background-position: center top;
   display: flex;
   justify-content: center;
@@ -15,7 +15,6 @@ body {
   margin: 0;
   color: black;
   text-align: center;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
 
 .reviews {
@@ -46,6 +45,7 @@ button:hover {
 }
 
 .link {
+  font-family: Zen Dots;
   display: inline-block;
   padding: 12px;
   margin: 0 6px 6px; 

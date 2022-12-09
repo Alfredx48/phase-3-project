@@ -50,34 +50,31 @@ const HomePage = ({ changeUser, togglePassword }) => {
 
 	return (
 		<div>
+			<h1 className="font-effect-shadow-multiple"> BESTBOOKS </h1>
 			<form onSubmit={handleSubmit}>
-				{/* <label htmlFor="login" value="Username">
-					{" "}
-					Username:{" "}
-				</label> */}
 				<input
 				placeholder="Username"
 					type="text"
 					name="login"
 					value={userLogin}
 					onChange={handleChange}
-					autoFocus={true}
+					// autoFocus={true}
 				/>
 				<br />
 				<br />
-				{/* <label>Password:{" "}</label> */}
 				<input
 					type="password"
 					placeholder="Password"
 					name="password"
 					value={passLogin}
 					onChange={handlePassChange}
-					autoFocus={true}
+					// autoFocus={true}
 				></input>
 				<br/>
 				<br />
 				<button type="submit" value="Login">Login</button>
 			</form>
+			<br/>
 			<div>
 							{newAcc ? (
 								<NewUser

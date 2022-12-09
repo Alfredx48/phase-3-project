@@ -31,7 +31,7 @@ const Books = ({ books, currentUser }) => {
 
 	const mappedBooks = () => {
 		return books.map((book) => {
-			console.log(book)
+			console.log(book);
 			return (
 				<>
 					<div className="reviews">
@@ -41,24 +41,24 @@ const Books = ({ books, currentUser }) => {
 							whileTap={{ scale: 0.95 }}
 						>
 							<div>
-								<h1>Title: {book.title}</h1>
-								<h2>Author: {book.author}</h2>
-								<h2>Genre: {book.genre}</h2>
-								<h2>Publisher: {book.publisher}</h2>
+								<h1>{book.title}</h1>
+								<h2> by {book.author}</h2>
+								<p> {book.description}</p>
 								<img src={book.image_url} alt="book" />
+								<h2>Genre: {book.genre}</h2>
 							</div>
 						</motion.div>
 						<br />
-						<div>
-							{clickReview ? (
 								<ReviewForm
+									clickReview={clickReview}
+									clickReviewTrue={clickReviewTrue}
 									reviews={reviews}
 									setReviews={setReviews}
 									book_id={book.id}
 									user_id={users}
 									setUserId={setUsers}
 								/>
-							) : null}
+						<div>
 							<br />
 							<button onClick={clickReviewTrue}>click to review</button>
 						</div>
@@ -71,7 +71,7 @@ const Books = ({ books, currentUser }) => {
 
 	return (
 		<div>
-      <h1> Welcome {currentUser} </h1>
+			<h1> Welcome {currentUser} </h1>
 			{mappedBooks()}
 			{/* <Reviews reviews={reviews} /> */}
 		</div>

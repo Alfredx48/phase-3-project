@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components"
 const BestBooksStyle = createGlobalStyle`
 
 body {
-  font-family: Playfair Display;
+  font-family: Zen Dots;
   background: tomato;
   background-repeat: no-repeat;
   background-position: center top;
@@ -29,6 +29,12 @@ body {
 
 }
 
+img {
+  height: 300px;
+  width: 225px;
+  margin: 0 auto;
+}
+
 button {
   cursor: pointer;
   padding: 8px;
@@ -45,6 +51,7 @@ button:hover {
 }
 
 .link {
+  font-family: Zen Dots;
   display: inline-block;
   padding: 12px;
   margin: 0 6px 6px;

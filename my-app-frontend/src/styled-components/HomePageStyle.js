@@ -1,11 +1,15 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from "styled-components";
 
 const HomePageStyle = createGlobalStyle`
 
 body {
-  background: #778C97;
+  background-image
+  :url("https://i.imgur.com/PZs6w22.jpg");
+  background-position: center;
+  background-size: cover;
+  font-family: Kenia;
+  /* background: #778C97; */
   background-repeat: no-repeat;
-
   background-position: center top;
   display: flex;
   justify-content: center;
@@ -14,18 +18,6 @@ body {
   margin: 0;
   color: black;
   text-align: center;
-}
-
-.reviews {
-  background-color: rgba(100, 149, 237, .5);
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-  padding: 20px;
-  margin: 0 auto;
-  border-radius: 20px;
-  border: 2px solid black;
-
 }
 
 button {
@@ -46,16 +38,21 @@ button {
 button:hover {
   background-color: papayawhip;
 }
-
+h1{
+  font-size: 60px;
+  font-weight: 700;
+  font-family: Playball;
+}
 .link {
+  background-color: rgba(214, 214, 214, 0.5);
+  font-family: Zen Dots;
   display: inline-block;
   padding: 12px;
   margin: 0 6px 6px;
-
   text-decoration: none;
   color: black;
   border-radius: 10px;
 }
-`
+`;
 
-export default HomePageStyle
+export default HomePageStyle;

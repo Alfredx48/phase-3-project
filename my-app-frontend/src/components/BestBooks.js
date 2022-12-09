@@ -67,12 +67,12 @@ const BestBooks = () => {
 							whileHover={{ scale: 1.1 }}
 							whileTap={{ scale: 0.95 }}
 						> */}
-							<div>
-								<h1>Title: {book.title}</h1>
-								<h2>Author: {book.author}</h2>
-								<h2>Genre: {book.genre}</h2>
-								<h2>Publisher: {book.publisher}</h2>
+						<div>
+								<h1>{book.title}</h1>
+								<h2>by {book.author}</h2>
+								<p>{book.description}</p>
 								<img src={book.image_url} alt="book" />
+								<h2>Genre: {book.genre}</h2>
 								{book.reviews.map((br) => <Reviews br={br} deleteReview = {deleteReview} editReview={editReview} />)}
 							</div>
 						{/* </motion.div> */}

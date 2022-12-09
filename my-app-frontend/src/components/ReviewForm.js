@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ReviewForm = ({ reviews, setReviews, book_id, user_id, setUserId }) => {
+const ReviewForm = ({ reviews, setReviews, book_id, user_id, setUserId, clickReviewTrue, clickReview }) => {
 	const [rating, setRating] = useState(0);
 	const [comment, setComment] = useState("");
 
@@ -32,17 +32,16 @@ const ReviewForm = ({ reviews, setReviews, book_id, user_id, setUserId }) => {
 			.then((review) => {
 				console.log(review);
 				setReviews([...reviews, review]);
+				clickReviewTrue()
 				setUserId(user_id + 1);
 			});
 	};
 
 	return (
+		<>
+		{clickReview ?
 		<div className="form">
 			<form onSubmit={handleSubmit}>
-				<input type="text" name="name" placeholder="Name"></input>
-				<br />
-
-				<br />
 				<textarea
 					onChange={handleChangeComment}
 					placeholder="Review"
@@ -66,7 +65,7 @@ const ReviewForm = ({ reviews, setReviews, book_id, user_id, setUserId }) => {
 				<br />
 				<button>Submit</button>
 			</form>
-		</div>
+		</div> : null }</>
 	);
 };
 

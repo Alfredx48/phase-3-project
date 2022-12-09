@@ -3,8 +3,8 @@ import { createGlobalStyle } from "styled-components"
 const TheBestBookStyle = createGlobalStyle`
 
 body {
-  font-family: Playfair Display;
-  background: gold;
+  font-family: Zen Dots;
+  background: moccasin;
   background-repeat: no-repeat;
 
   background-position: center top;
@@ -18,7 +18,7 @@ body {
 }
 
 .reviews {
-  background-color: goldenrod;
+  background-color: crimson;
   display: flex;
   flex-direction: column;
   width: 400px;
@@ -45,6 +45,9 @@ button:hover {
 }
 
 .link {
+   font-family: Diplomata SC;
+   font-size: 20px;
+   height: 50px;
   display: inline-block;
   padding: 12px;
   margin: 0 6px 6px;
