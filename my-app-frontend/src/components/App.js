@@ -3,10 +3,12 @@ import { useState, useEffect } from "react";
 import HomePageStyle from "../styled-components/HomePageStyle";
 import BooksStyle from "../styled-components/BooksStyle";
 import BestBooksStyle from "../styled-components/BestBooksStyle";
+import TheBestBookStyle from "../styled-components/TheBestBookStyle";
 import BestBooks from "./BestBooks";
 import HomePage from "./HomePage";
 import NavBar from "./NavBar";
 import Books from "./Books";
+import TheBestBook from "./TheBestBook";
 import { Switch, Route } from "react-router-dom";
 
 function App() {
@@ -51,6 +53,11 @@ function App() {
 					<BestBooksStyle />
 					<BestBooks books={books} />
 				</Route>
+				<Route path="/the_best_book">
+          <NavBar />
+					<TheBestBookStyle />
+					<TheBestBook />
+					</Route>
 			</Switch>
 		</div>
 	);

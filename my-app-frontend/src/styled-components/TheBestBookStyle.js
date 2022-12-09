@@ -1,9 +1,10 @@
 import { createGlobalStyle } from "styled-components"
 
-const HomePageStyle = createGlobalStyle`
+const TheBestBookStyle = createGlobalStyle`
 
 body {
-  background: #778C97;
+  font-family: Playfair Display;
+  background: gold;
   background-repeat: no-repeat;
 
   background-position: center top;
@@ -17,7 +18,7 @@ body {
 }
 
 .reviews {
-  background-color: rgba(100, 149, 237, .5);
+  background-color: goldenrod;
   display: flex;
   flex-direction: column;
   width: 400px;
@@ -29,17 +30,13 @@ body {
 }
 
 button {
-  font-family: Playfair Display;
   cursor: pointer;
-
-  font-size: 18px;
-  padding: 1px;
+  padding: 8px;
   border: none;
   top: 50%;
   width: 160px;
-  height: 25px;
-  margin: 0 auto;
-  /* border-radius: 5px; */
+  height: 30px;
+  border-radius: 5px;
   box-shadow: 0px 0px 2px 2px rgb(0, 0, 0);
 }
 
@@ -51,11 +48,10 @@ button:hover {
   display: inline-block;
   padding: 12px;
   margin: 0 6px 6px;
-
   text-decoration: none;
   color: black;
   border-radius: 10px;
 }
 `
 
-export default HomePageStyle
+export default TheBestBookStyle

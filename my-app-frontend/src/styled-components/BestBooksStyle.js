@@ -1,12 +1,11 @@
 import { createGlobalStyle } from "styled-components"
 
 const BestBooksStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css?family=roboto');
 
 body {
+  font-family: Playfair Display;
   background: tomato;
   background-repeat: no-repeat;
-
   background-position: center top;
   display: flex;
   justify-content: center;
@@ -15,7 +14,7 @@ body {
   margin: 0;
   color: black;
   text-align: center;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+
 }
 
 .reviews {
@@ -49,7 +48,6 @@ button:hover {
   display: inline-block;
   padding: 12px;
   margin: 0 6px 6px;
-  background-color: ;
   text-decoration: none;
   color: black;
   border-radius: 10px;

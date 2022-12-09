@@ -43,17 +43,19 @@ const BestBooks = () => {
 		method: "DELETE",
 	}) 
 	.then((response) => response.json())
-	.then(setBestBooks( bestBooks.map(bb => bb.id === book_id ? {...bb, reviews: [bb.reviews.filter(r => r.id !== id)]} : bb)))
+	.then(setBestBooks( bestBooks.map(bb => bb.id === book_id ? {...bb, reviews: bb.reviews.filter(r => r.id !== id)} : bb)))
 	// console.log(bestBooks.map(bb => bb.id === book_id ? {...bb, reviews: [bb.reviews.filter(r => r.id !== id)]} : bb))
 
 	};
 
 	const editReview = (id, book_id, updatedReview) => {
-		setBestBooks(	bestBooks.map(bb => bb.id === book_id ? {...bb, reviews: [bb.reviews.map(r => r.id === id ? updatedReview : r)]}:bb))
+		setBestBooks(	bestBooks.map(bb => bb.id === book_id ? {...bb, reviews: bb.reviews.map(r => r.id === id ? updatedReview : r)}:bb))
 		// setToggleEdit(!toggleEdit)
 		// console.log(id)
 		// console.log(book_id)
 	}
+
+
 
 	const mappedBooks = () => {
 		return bestBooks.map((book) => {

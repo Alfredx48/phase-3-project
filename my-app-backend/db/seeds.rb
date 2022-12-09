@@ -20,7 +20,7 @@ u8 = User.create(name: Faker::Name.name)
 u9 = User.create(name: Faker::Name.name)
 u = User.create(name: Faker::Name.name)
 
-b1 = Book.create(  image_url: Faker::LoremFlickr.image( search_terms:["book"],match_all: false), title: Faker::Book.title, author: Faker::Book.author, publisher: Faker::Book.publisher, genre: Faker::Book.genre)
+b1 = Book.create(  image_url: Faker::LoremFlickr.image( search_terms:["shoes"],match_all: false), title: Faker::Book.title, author: Faker::Book.author, publisher: Faker::Book.publisher, genre: Faker::Book.genre)
 b2 = Book.create(  image_url: Faker::LoremFlickr.image( search_terms:["book"],match_all: false), title: Faker::Book.title, author: Faker::Book.author, publisher: Faker::Book.publisher, genre: Faker::Book.genre)
 b3 = Book.create(  image_url: Faker::LoremFlickr.image( search_terms:["book"],match_all: false), title: Faker::Book.title, author: Faker::Book.author, publisher: Faker::Book.publisher, genre: Faker::Book.genre)
 b4 = Book.create(  image_url: Faker::LoremFlickr.image( search_terms:["book"],match_all: false), title: Faker::Book.title, author: Faker::Book.author, publisher: Faker::Book.publisher, genre: Faker::Book.genre)

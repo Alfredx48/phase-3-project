@@ -16,6 +16,10 @@ const NavBar = () => {
 				{" "}
 				Best Books{" "}
 			</NavLink>
+			<NavLink className="link" to="/the_best_book">
+				{" "}
+				The Best Book{" "}
+			</NavLink>
 		</div>
 	);
 };

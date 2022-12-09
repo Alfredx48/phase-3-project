@@ -20,7 +20,7 @@ class ApplicationController < Sinatra::Base
   
   get "/best" do
       books = Book.best_book
-      books.to_json
+      books.to_json(include: :reviews)
   end
 
   get "/top_books" do 
