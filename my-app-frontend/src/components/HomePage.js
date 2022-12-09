@@ -1,9 +1,20 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import NewUser from "./NewUser"
 
 const HomePage = ({ changeUser, togglePassword }) => {
 	const [userLogin, setUserLogin] = useState("");
 	const [passLogin, setPassLogin] = useState("");
+
+
+    const [newUser,setNewUser] = useState("");
+
+	const [newAcc,setNewAcc] = useState(false);
+
+	const clicknewAccTrue = () => 
+	{
+		setNewAcc(!newAcc);
+	}
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -67,6 +78,17 @@ const HomePage = ({ changeUser, togglePassword }) => {
 				<br />
 				<button type="submit" value="Login">Login</button>
 			</form>
+			<div>
+							{newAcc ? (
+								<NewUser
+								setNewUser={setNewUser}
+									newUser={newUser}
+									clicknewAccTrue={clicknewAccTrue}
+								/>
+							) : null}
+							<br />
+							<button onClick={clicknewAccTrue}>Create New User</button>
+						</div>
 		</div>
 	);
 };

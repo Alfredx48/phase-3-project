@@ -50,6 +50,11 @@ class ApplicationController < Sinatra::Base
     books.to_json
   end
 
+  post "/users" do
+    users = User.create(params)
+    users.to_json
+  end
+
   get "/books/:id" do
     books_id = Book.find(params[:id])
     books_id.to_json
