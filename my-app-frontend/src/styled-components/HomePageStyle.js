@@ -51,7 +51,7 @@ button:hover {
   display: inline-block;
   padding: 12px;
   margin: 0 6px 6px;
-
+  font-size: 25px;
   text-decoration: none;
   color: black;
   border-radius: 10px;

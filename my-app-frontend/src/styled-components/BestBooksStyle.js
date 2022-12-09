@@ -44,6 +44,15 @@ button:hover {
   background-color: papayawhip;
 }
 
+img {
+  height: 300px;
+  width: 225px;
+  margin: 0 auto;
+}
+
+
+
+
 .link {
   display: inline-block;
   padding: 12px;
@@ -51,6 +60,7 @@ button:hover {
   text-decoration: none;
   color: black;
   border-radius: 10px;
+  font-size: 25px;
 }
 `
 

@@ -28,6 +28,11 @@ body {
   border: 2px solid black;
 
 }
+img {
+  height: 300px;
+  width: 225px;
+  margin: 0 auto;
+}
 
 button {
   cursor: pointer;
@@ -51,6 +56,7 @@ button:hover {
   text-decoration: none;
   color: black;
   border-radius: 10px;
+  font-size: 25px;
 }
 `
 

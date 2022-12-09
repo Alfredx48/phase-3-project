@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2022_12_06_031401) do
     t.string "title"
     t.string "author"
     t.string "genre"
-    t.string "publisher"
+    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -34,11 +34,10 @@ ActiveRecord::Schema.define(version: 2022_12_06_031401) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.string "username"
     t.string "password"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
